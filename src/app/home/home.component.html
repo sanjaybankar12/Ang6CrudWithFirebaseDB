@@ -1,0 +1,30 @@
+<div>
+    <h4 class="text-center">{{title}}</h4>
+    <hr/>
+    <table class="table table-bordered table-centered table-stripped">
+        <thead class="bg-primary">
+            <tr>
+                <td>Name</td>
+                <td>Phone</td>
+                <td>Gender</td>
+                <td>City</td>
+                <td>State</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of userList">
+                <td>{{user.name}}</td>
+                <td>{{user.phone}}</td>
+                <td [ngSwitch]="user.gender">
+                    <span *ngSwitchCase="1">Male</span>
+                    <span *ngSwitchCase="2">Female</span>
+                </td>
+                <td>{{user.city}}</td>
+                <td>{{user.state}}</td>
+                <td><button type="button" (click)="removeUser(user.$key)" class="btn btn-primary">X</button>&nbsp;&nbsp;&nbsp;<button type="button" (click)="updateUser(user)" class="btn btn-primary">!E</button></td>
+            </tr>
+        </tbody>
+    </table>
+   
+</div>
